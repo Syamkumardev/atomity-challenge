@@ -4,7 +4,7 @@ import AnimatedCard from "../components/AnimatedCard"
 import SkeletonCard from "../components/SkeletonCard"
 import { motion } from "framer-motion"
 import CostChart from "@/components/CostChart"
-
+import TrendChart from "@/components/TrendChart"
 export default function Home() {
 
   // CLOUD DATA
@@ -32,6 +32,7 @@ export default function Home() {
 
       {/* CHART */}
       <CostChart />
+      <TrendChart />
 
       {/* CARDS SECTION */}
       <div className="bg-gray-100 py-20">
@@ -64,6 +65,7 @@ export default function Home() {
               ))}
 
             </motion.div>
+            
 
           )}
 
