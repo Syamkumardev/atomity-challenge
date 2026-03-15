@@ -3,6 +3,8 @@
 import { motion } from "framer-motion"
 import { FaCloud } from "react-icons/fa"
 import CountUp from "react-countup"
+
+
 type Props = {
   title: string
   value: string
@@ -14,6 +16,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.5 }
+    
   }
 }
 
@@ -22,8 +25,9 @@ export default function AnimatedCard({ title, value }: Props) {
 <motion.div
   variants={cardVariants}
   whileHover={{ scale: 1.05 }}
-  className="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition"
+ className="bg-white p-6 rounded-xl shadow-md hover:scale-105 transition duration-300"
 >
+  <FaCloud className="text-blue-500 text-3xl mb-2" />
 
   <div className="flex items-center mb-4">
 
