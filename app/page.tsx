@@ -2,13 +2,19 @@
 
 import AnimatedCard from "../components/AnimatedCard"
 import SkeletonCard from "../components/SkeletonCard"
-import { useApiData } from "../hooks/useApiData"
 import { motion } from "framer-motion"
 import CostChart from "@/components/CostChart"
 
 export default function Home() {
 
-  const { data, isLoading } = useApiData()
+  // CLOUD DATA
+  const data = [
+    { id: 1, title: "Compute Cost", value: 125 },
+    { id: 2, title: "Storage Cost", value: 342 },
+    { id: 3, title: "Network Cost", value: 89 },
+  ];
+
+  const isLoading = false
 
   return (
     <div>
@@ -23,18 +29,14 @@ export default function Home() {
           Explore pricing insights with smooth animations
         </p>
       </div>
-        const data = [
-          { id: 1, title: "Compute Cost", value: 125 },
-          { id: 2, title: "Storage Cost", value: 342 },
-          { id: 3, title: "Network Cost", value: 89 },
-        ]; 
+
+      {/* CHART */}
+      <CostChart />
 
       {/* CARDS SECTION */}
-      <CostChart />
       <div className="bg-gray-100 py-20">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6">
 
-          {/* LOADING STATE */}
           {isLoading ? (
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -53,17 +55,16 @@ export default function Home() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
 
-              {data?.map((item: any) => (
+              {data.map((item) => (
                 <AnimatedCard
                   key={item.id}
                   title={item.title}
-                  value={`$${item.price}`}
+                  value={`$${item.value}`}
                 />
               ))}
 
             </motion.div>
 
-              
           )}
 
         </div>
