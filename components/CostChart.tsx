@@ -25,33 +25,33 @@ export default function CostChart() {
 
   const data = {
     labels: ["Compute", "Storage", "Network"],
-   datasets: [
-  {
-    label: "Monthly Cloud Cost ($)",
-    data: [125, 342, 89],
+    datasets: [
+      {
+        label: "Monthly Cloud Cost ($)",
+        data: [125, 342, 89],
 
-    backgroundColor: [
-      "rgba(59,130,246,0.7)",
-      "rgba(168,85,247,0.7)",
-      "rgba(34,197,94,0.7)"
+        backgroundColor: [
+          "rgba(59,130,246,0.7)",
+          "rgba(168,85,247,0.7)",
+          "rgba(34,197,94,0.7)"
+        ],
+
+        hoverBackgroundColor: [
+          "rgba(59,130,246,1)",
+          "rgba(168,85,247,1)",
+          "rgba(34,197,94,1)"
+        ],
+
+        borderColor: [
+          "rgb(59,130,246)",
+          "rgb(168,85,247)",
+          "rgb(34,197,94)"
+        ],
+
+        borderWidth: 2,
+        borderRadius: 8,
+      },
     ],
-
-    hoverBackgroundColor: [
-      "rgba(59,130,246,1)",
-      "rgba(168,85,247,1)",
-      "rgba(34,197,94,1)"
-    ],
-
-    borderColor: [
-      "rgb(59,130,246)",
-      "rgb(168,85,247)",
-      "rgb(34,197,94)"
-    ],
-
-    borderWidth: 2,
-    borderRadius: 8,
-  },
-]
   }
 
   const options = {
@@ -65,9 +65,6 @@ export default function CostChart() {
         text: "Monthly Cloud Cost Analysis",
       },
     },
-    
-  },
-}
   }
 
   return (
