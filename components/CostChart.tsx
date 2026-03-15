@@ -23,33 +23,29 @@ ChartJS.register(
 
 export default function CostChart() {
 
+  const costs = [125, 342, 89]
+  const maxCost = Math.max(...costs)
+
   const data = {
     labels: ["Compute", "Storage", "Network"],
     datasets: [
       {
         label: "Monthly Cloud Cost ($)",
-        data: [125, 342, 89],
+        data: costs,
 
-        backgroundColor: [
-          "rgba(59,130,246,0.7)",
-          "rgba(168,85,247,0.7)",
-          "rgba(34,197,94,0.7)"
-        ],
+        backgroundColor: costs.map((value) =>
+          value === maxCost
+            ? "rgba(239,68,68,0.9)"   // highest cost → red
+            : "rgba(59,130,246,0.7)"  // normal → blue
+        ),
 
-        hoverBackgroundColor: [
-          "rgba(59,130,246,1)",
-          "rgba(168,85,247,1)",
-          "rgba(34,197,94,1)"
-        ],
+        hoverBackgroundColor: costs.map((value) =>
+          value === maxCost
+            ? "rgba(239,68,68,1)"
+            : "rgba(59,130,246,1)"
+        ),
 
-        borderColor: [
-          "rgb(59,130,246)",
-          "rgb(168,85,247)",
-          "rgb(34,197,94)"
-        ],
-
-        borderWidth: 2,
-        borderRadius: 8,
+        borderRadius: 10,
       },
     ],
   }
@@ -58,11 +54,30 @@ export default function CostChart() {
     responsive: true,
     plugins: {
       legend: {
-        position: "top" as const,
+        display: false,
       },
       title: {
         display: true,
         text: "Monthly Cloud Cost Analysis",
+      },
+      tooltip: {
+        backgroundColor: "#111",
+        titleColor: "#fff",
+        bodyColor: "#fff",
+      },
+    },
+
+    scales: {
+      x: {
+        grid: {
+          display: false,   // remove vertical grid
+        },
+      },
+      y: {
+        grid: {
+          display: false,   // remove horizontal grid
+        },
+        beginAtZero: true,
       },
     },
   }
